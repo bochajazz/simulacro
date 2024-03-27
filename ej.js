@@ -24,16 +24,20 @@ console.log("-----primera parte del ejercicio------");
 
 function condicion(nota){
 
-    if (nota < 4){
-        return "LIBRE";
+    if (nota < 1 || nota > 10){
+        return "Ese número no corresponde a una calificación";
         //console.log("Tu condición es Libre");
     } 
-    else if (nota < 7){
-    return "NO ES LIBRE ES REGULAR";
+    else if (nota < 4){
+    return "LIBRE";
         //console.log("Tu condición no es libre es regular");
     }
 
-    else if (nota > 6){
+    else if (nota < 7){
+        return "NO ES LIBRE, ES REGULAR";
+    }
+
+    else {
         return "PROMOCIONAL";
     }
 }
@@ -49,31 +53,30 @@ console.log(condicion(1));
 
 console.log("-----tercera parte del ejercicio------");
 
+function clasificarAlumno(nota1, nota2, nota3) {
+    // Validar que todas las notas estén dentro del rango
+    if (nota1 < 1 || nota1 > 10 || nota2 < 1 || nota2 > 10 || nota3 < 1 || nota3 > 10) {
+        return "Error: Todas las notas deben estar entre 1 y 10";
+    }
 
-let num1 = 3;
-let num2 = 6;
-let num3 = 8;
+    // Calcular el promedio
+    var promedio = (nota1 + nota2 + nota3) / 3;
 
-let resultado =(num1 + num2 + num3) / 3;
-
-function promedio (num1, num2, num3){
-
-   
-    console.log(resultado);
-    if (resultado < 4){
-    console.log("Tu condición es Libre");
-} 
-    if (resultado < 7){
-    console.log("Tu condición no es libre es regular");
+    // Determinar el estado del alumno según el promedio
+    if (promedio < 4) {
+        return "LIBRE";
+        
+    } else if (promedio < 7) {
+        return "REGULAR";
+        
+    } else {
+        return "TU CONDICIÓN ES: 'PROMOCIONADO'.";
+        
+    }
 }
 
-else {console.log("Tu condición es promocional");}
-
-
-//return console.log("El valor expresado no corresponde a una nota");
-
-//return (if nota <= 11)
-//console.log("El valor expresado no corresponde a una nota");
-}
-
-promedio();
+// Ejemplo de uso:
+console.log(clasificarAlumno(6, 7, 8)); // Salida: REGULAR
+// console.log(clasificarAlumno(2, 3, 4)); // Salida: LIBRE
+// console.log(clasificarAlumno(9, 8, 7)); // Salida: PROMOCIONADO
+// console.log(clasificarAlumno(10, 2, 11)); // Salida: Error: Todas las notas deben estar entre 1 y 10
